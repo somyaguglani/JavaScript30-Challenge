@@ -1,0 +1,47 @@
+/* ---------------UNIVERSAL--------------- */
+
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* -----------------------------FLEXBOX----------------------------- */
+
+.keys {
+  padding: 10%;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------------------------KEYS----------------------------- */
+
+.key {
+  width: 20%;
+  margin: 2%;
+  padding: 2% 1%;
+  transition: all 0.07s;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 0.5rem black; /*new property */
+  border: 3px solid black;
+}
+.playground {
+  border: 3px solid rgba(243, 243, 5, 0.973);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(243, 243, 5, 0.973);
+}
+.sound {
+  color: rgba(255, 255, 6, 0.973);
+  font-size: 15px;
+  margin-top: 10%;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
