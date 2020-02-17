@@ -10,8 +10,31 @@
 /* -----------FLEXBOX------------- */
 
 .keys {
+  background-image: url(./images/concert\photo.jpeg);
   display: flex;
+  flex: 1;
   justify-content: center;
   min-height: 100vh;
   align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+/* -------------INDIVISUAL KEY ----------------- */
+
+.key {
+  margin: 1.5rem;
+  border: 0.2rem solid black;
+  padding: 1rem 1rem;
+  border-radius: 0.4rem;
+}
+kbd {
+  color: white;
+  display: block;
+  font-family: monospace;
+}
+.sound {
+  color: rgba(241, 241, 7, 0.89);
+  font-size: 0.8rem;
 }
