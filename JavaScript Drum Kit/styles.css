@@ -24,6 +24,7 @@
 /* -------------INDIVISUAL KEY ----------------- */
 
 .key {
+  transition: all 0.07s ease;
   margin: 1.5rem;
   border: 0.2rem solid black;
   padding: 1rem 1rem;
