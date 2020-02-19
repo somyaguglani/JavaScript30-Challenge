@@ -31,7 +31,9 @@ body {
   position: absolute;
   background-color: black;
   width: 1rem;
-  top: 50%;
+
   left: 50%;
-  height: 16rem;
+  transition: all 0.5s;
+  height: 14rem;
+  transform-origin: 100%;
 }
