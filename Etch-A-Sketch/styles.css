@@ -1,20 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-image: url(https://images.pexels.com/photos/89625/pexels-photo-89625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
-  background-repeat: no-repeat;
+  background: no-repeat
+    url(https://images.pexels.com/photos/89625/pexels-photo-89625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
   background-size: cover;
-  min-height: 100vh;
-  align-content: center;
+  align-items: center;
+  max-height: 100vh;
 }
-#etch-a-sketch {
-  margin: auto;
-  display: block;
-  width: 80%;
-  border: 1rem solid violet;
+.etch-a-sketch {
   background-color: white;
-}
-#shake {
+  border: 1rem solid red;
+  margin: auto;
+  margin-top: 4rem;
+  width: 700px;
+  height: 400px;
   display: block;
-  margin-top: 2rem;
-  background-color: darkmagenta;
+}
+.btn {
   color: white;
+  background-color: crimson;
+  border: none;
+  margin: 2rem auto;
+
+  font-size: 1.4rem;
+  padding: 0.7rem 1rem;
+  display: block;
 }
