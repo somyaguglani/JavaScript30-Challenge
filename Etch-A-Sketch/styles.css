@@ -1,0 +1,20 @@
+body {
+  background-image: url(https://images.pexels.com/photos/89625/pexels-photo-89625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  align-content: center;
+}
+#etch-a-sketch {
+  margin: auto;
+  display: block;
+  width: 80%;
+  border: 1rem solid violet;
+  background-color: white;
+}
+#shake {
+  display: block;
+  margin-top: 2rem;
+  background-color: darkmagenta;
+  color: white;
+}
