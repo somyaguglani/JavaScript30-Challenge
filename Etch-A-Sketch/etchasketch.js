@@ -8,7 +8,6 @@ let y = Math.floor(Math.random() * height);
 let hue = 0;
 ctx.strokeStyle = `hsl(${hue},100%,50%)`;
 
-console.log(ctx);
 ctx.lineJoin = `round`;
 ctx.lineCap = `round`;
 ctx.lineWidth = MOVE_AMOUNT;
