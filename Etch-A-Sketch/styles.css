@@ -38,6 +38,7 @@ body {
 
 /* ..............ANIMATION.......... */
 
+/* don't leave any space between canvas.shake*/
 canvas.shake {
   animation: shake 0.5s linear 1;
 }
