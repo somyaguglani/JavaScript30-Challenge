@@ -1,3 +1,5 @@
+/* ............UNIVERSAL AND BACKGROUND SETTINGS........ */
+
 * {
   padding: 0;
   margin: 0;
@@ -11,6 +13,9 @@ body {
   align-items: center;
   max-height: 100vh;
 }
+
+/* ............CANVAS AND BUTTON.......... */
+
 .etch-a-sketch {
   background-color: white;
   border: 1rem solid red;
@@ -30,6 +35,9 @@ body {
   padding: 0.7rem 1rem;
   display: block;
 }
+
+/* ..............ANIMATION.......... */
+
 canvas.shake {
   animation: shake 0.5s linear 1;
 }
