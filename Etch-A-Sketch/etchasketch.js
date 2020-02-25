@@ -17,6 +17,8 @@ ctx.moveTo(x, y);
 ctx.lineTo(x, y);
 ctx.stroke();
 
+// ...........FUNCTION FOR DRAWING .............
+
 // function draw(options) { //we can pass options object
 
 // object de-structuring
@@ -45,6 +47,24 @@ function draw({ key }) {
   ctx.stroke();
 }
 
+// ................FUNCTION FOR CLEARING CanvasGradient.........
+
+function clearCanvas() {
+  canvas.classList.add(`shake`);
+  ctx.clearRect(0, 0, width, height);
+  canvas.addEventListener(
+    `animationend`,
+    () => canvas.classList.remove(`shake`),
+    { once: true }
+  ); //so that the listener unbinds itself we pass an object as the third arguement
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x, y);
+  ctx.stroke();
+}
+
+// .........FUNCTION FOR HANDLING KEYS AND LISTENERS.........
+
 function handleKey(e) {
   if (e.key.includes(`Arrow`)) {
     e.preventDefault();
@@ -52,3 +72,4 @@ function handleKey(e) {
   }
 }
 window.addEventListener(`keydown`, handleKey);
+btn.addEventListener(`click`, clearCanvas);
