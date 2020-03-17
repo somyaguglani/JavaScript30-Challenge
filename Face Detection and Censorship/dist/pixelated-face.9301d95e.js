@@ -118,12 +118,24 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"pixelated-face.js":[function(require,module,exports) {
-const videoElement = document.querySelector(`.video`);
+const video = document.querySelector(`.video`);
 const canvas = document.querySelector(`.first`);
 const faceCanvas = document.querySelector(`.second`);
+console.log(video, canvas, faceCanvas);
 const ctx = canvas.getContext(`2d`);
 const faceCtx = faceCanvas.getContext(`2d`);
 const faceDetector = new window.FaceDetector();
+
+async function populateVideo() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: {
+      width: 1280,
+      height: 720
+    }
+  });
+  video.srcObject = stream;
+  await video.play();
+}
 },{}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
