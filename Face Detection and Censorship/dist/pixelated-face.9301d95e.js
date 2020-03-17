@@ -135,6 +135,11 @@ async function populateVideo() {
   });
   video.srcObject = stream;
   await video.play();
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  faceCanvas.width = video.videoWidth;
+  faceCanvas.height = video.videoHeight;
+  console.log(canvas.width, canvas.height, faceCanvas.width, faceCanvas.height);
 }
 },{}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

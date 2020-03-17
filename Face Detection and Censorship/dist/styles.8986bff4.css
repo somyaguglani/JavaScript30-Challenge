@@ -8,6 +8,10 @@
   align-items: center;
   justify-content: center;
 }
+.wrap > * {
+  grid-row: 1;
+  grid-column: 1;
+}
 
 
 /*# sourceMappingURL=/styles.8986bff4.css.map */
