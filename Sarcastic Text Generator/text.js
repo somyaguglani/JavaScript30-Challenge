@@ -1,6 +1,7 @@
-const textArea = document.querySelector(`.container textarea[name = "input"]`);
-const options = document.querySelectorAll(`.container input[name = "options"]`);
-const outputPara = document.querySelector(`p`);
+const textarea = document.querySelector('[name="text"]');
+const result = document.querySelector(".result");
+const filterInputs = Array.from(document.querySelectorAll('[name="filter"]'));
+
 const funkyLetters = {
   "-": "₋",
   "!": "ᵎ",
@@ -71,15 +72,46 @@ const funkyLetters = {
   Z: "ᶻ"
 };
 
+// -----------------FILTERS----------------------
+const filters = {
+  sarcastic(letter, index) {
+    if (index % 2) return letter.toUpperCase();
+    return letter.toLowerCase();
+  },
+  funky(letter) {
+    let funkyLetter = funkyLetters[letter];
+    if (funkyLetter) return funkyLetter;
+
+    funkyLetter = funkyLetters[letter.toLowerCase()];
+    if (funkyLetter) return funkyLetter;
+
+    return letter;
+  },
+  unable(letter) {
+    const random = Math.floor(Math.random() * 3);
+    if (letter === " " && random === 2) {
+      return "...";
+    }
+    return letter;
+  }
+};
+
+//-----------FUNCTION FOR TRANSFORMING TEXT---------------
+
 function transformText(text) {
-  const option = options.find(e => e.checked).value; //choosing checkbox value
-  const newText = Array.from(text).map(filters[option]);
-  textArea.textContent = newText.join(``);
+  // const filter = document.querySelector('[name="filter"]:checked').value;
+  const filter = filterInputs.find(input => input.checked).value;
+  // take the text, and loop over each letter.
+  const mod = Array.from(text).map(filters[filter]);
+  result.textContent = mod.join("");
 }
 
-textArea.addEventListener(`input`, function() {
-  transformText(event.currentTarget.value);
-});
-options.forEach(option =>
-  option.addEventListener(`input`, transformText(textArea.value))
+//------------EVENT LISTENERS----------------
+
+textarea.addEventListener("input", e => transformText(e.target.value));
+
+filterInputs.forEach(input =>
+  input.addEventListener("input", () => {
+    transformText(textarea.value);
+  })
 );
