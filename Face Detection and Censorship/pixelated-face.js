@@ -3,13 +3,11 @@
 const video = document.querySelector(`.video`);
 const canvas = document.querySelector(`.first`);
 const faceCanvas = document.querySelector(`.second`);
-console.log(video, canvas, faceCanvas);
 const ctx = canvas.getContext(`2d`);
 const faceCtx = faceCanvas.getContext(`2d`);
 const faceDetector = new window.FaceDetector();
 
 const inputs = document.querySelectorAll(`.controls input[type = "range"]`);
-console.log(inputs);
 
 const options = {
   SIZE: 10,
@@ -23,7 +21,6 @@ inputs.forEach(input => input.addEventListener(`input`, handleEvent));
 function handleEvent(event) {
   const input = event.currentTarget;
   options[input.name] = input.value;
-  console.log(options.SCALE, options.SIZE);
 }
 
 // -----------FUNCTION FOR PLAYING VIDEO---------------
@@ -44,7 +41,6 @@ async function populateVideo() {
 
 async function detect() {
   const faces = await faceDetector.detect(video);
-  console.log(faces);
   faces.forEach(drawFace);
   faces.forEach(censorFace);
   requestAnimationFrame(detect);
