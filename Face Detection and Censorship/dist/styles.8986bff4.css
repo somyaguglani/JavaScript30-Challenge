@@ -1,16 +1,26 @@
 * {
   box-sizing: border-box;
 }
-.wrap {
-  margin: auto;
-  display: grid;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+
+body {
+  margin: 0;
 }
+
+.wrap {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
 .wrap > * {
-  grid-row: 1;
   grid-column: 1;
+  grid-row: 1;
+}
+
+.face {
+  position: absolute;
 }
 
 

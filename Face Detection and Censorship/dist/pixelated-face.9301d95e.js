@@ -125,7 +125,8 @@ console.log(video, canvas, faceCanvas);
 const ctx = canvas.getContext(`2d`);
 const faceCtx = faceCanvas.getContext(`2d`);
 const faceDetector = new window.FaceDetector();
-ctx.strokeStyle = "#ffc600";
+const SIZE = 10;
+const SCALE = 1.5;
 
 async function populateVideo() {
   const stream = await navigator.mediaDevices.getUserMedia({
@@ -146,7 +147,8 @@ async function detect() {
   const faces = await faceDetector.detect(video);
   console.log(faces);
   faces.forEach(drawFace);
-  faces.forEach(censorFace); //   requestAnimationFrame(detect);
+  faces.forEach(censorFace);
+  requestAnimationFrame(detect);
 }
 
 function drawFace(face) {
@@ -157,11 +159,22 @@ function drawFace(face) {
     left
   } = face.boundingBox;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = "#ffc600";
   ctx.lineWidth = 2;
   ctx.strokeRect(left, top, width, height);
 }
 
-function censorFace() {}
+function censorFace({
+  boundingBox: face
+}) {
+  //destructuring and giving it a name
+  faceCtx.imageSmoothingEnabled = false;
+  faceCtx.clearRect(0, 0, faceCanvas.width, faceCanvas.height);
+  faceCtx.drawImage(video, face.x, face.y, face.width, face.height, face.x, face.y, SIZE, SIZE);
+  const width = SCALE * face.width;
+  const height = SCALE * face.height;
+  faceCtx.drawImage(faceCanvas, face.x, face.y, SIZE, SIZE, face.x - (width - face.width) / 2, face.y - (height - face.height) / 2, width, height);
+}
 
 populateVideo().then(detect);
 },{}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
