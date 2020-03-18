@@ -139,8 +139,16 @@ async function populateVideo() {
   canvas.height = video.videoHeight;
   faceCanvas.width = video.videoWidth;
   faceCanvas.height = video.videoHeight;
-  console.log(canvas.width, canvas.height, faceCanvas.width, faceCanvas.height);
 }
+
+async function detect() {
+  const faces = await faceDetector.detect(video);
+  faces.forEach(draw);
+  faces.forEach(censor);
+  requestAnimationFrame(detect);
+}
+
+populateVideo().then(detect);
 },{}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

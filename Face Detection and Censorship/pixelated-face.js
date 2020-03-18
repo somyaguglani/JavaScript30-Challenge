@@ -16,5 +16,12 @@ async function populateVideo() {
   canvas.height = video.videoHeight;
   faceCanvas.width = video.videoWidth;
   faceCanvas.height = video.videoHeight;
-  console.log(canvas.width, canvas.height, faceCanvas.width, faceCanvas.height);
 }
+
+async function detect() {
+  const faces = await faceDetector.detect(video);
+  faces.forEach(draw);
+  faces.forEach(censor);
+  requestAnimationFrame(detect);
+}
+populateVideo().then(detect);
