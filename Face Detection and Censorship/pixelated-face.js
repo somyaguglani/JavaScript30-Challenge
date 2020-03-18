@@ -5,6 +5,7 @@ console.log(video, canvas, faceCanvas);
 const ctx = canvas.getContext(`2d`);
 const faceCtx = faceCanvas.getContext(`2d`);
 const faceDetector = new window.FaceDetector();
+ctx.strokeStyle = "#ffc600";
 
 async function populateVideo() {
   const stream = await navigator.mediaDevices.getUserMedia({
@@ -20,8 +21,18 @@ async function populateVideo() {
 
 async function detect() {
   const faces = await faceDetector.detect(video);
-  faces.forEach(draw);
-  faces.forEach(censor);
-  requestAnimationFrame(detect);
+  console.log(faces);
+  faces.forEach(drawFace);
+  faces.forEach(censorFace);
+  //   requestAnimationFrame(detect);
 }
+
+function drawFace(face) {
+  const { width, height, top, left } = face.boundingBox;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.lineWidth = 2;
+  ctx.strokeRect(left, top, width, height);
+}
+function censorFace() {}
+
 populateVideo().then(detect);
