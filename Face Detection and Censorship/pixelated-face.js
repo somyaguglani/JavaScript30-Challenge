@@ -1,3 +1,5 @@
+//----------ASSIGNING VARIABLES AND CONTEXT-------------
+
 const video = document.querySelector(`.video`);
 const canvas = document.querySelector(`.first`);
 const faceCanvas = document.querySelector(`.second`);
@@ -5,8 +7,26 @@ console.log(video, canvas, faceCanvas);
 const ctx = canvas.getContext(`2d`);
 const faceCtx = faceCanvas.getContext(`2d`);
 const faceDetector = new window.FaceDetector();
-const SIZE = 10;
-const SCALE = 1.5;
+
+const inputs = document.querySelectorAll(`.controls input[type = "range"]`);
+console.log(inputs);
+
+const options = {
+  SIZE: 10,
+  SCALE: 1.35
+};
+
+// --------------FUNCTION FOR HANDLING EVENTS---------------
+
+inputs.forEach(input => input.addEventListener(`input`, handleEvent));
+
+function handleEvent(event) {
+  const input = event.currentTarget;
+  options[input.name] = input.value;
+  console.log(options.SCALE, options.SIZE);
+}
+
+// -----------FUNCTION FOR PLAYING VIDEO---------------
 
 async function populateVideo() {
   const stream = await navigator.mediaDevices.getUserMedia({
@@ -20,6 +40,8 @@ async function populateVideo() {
   faceCanvas.height = video.videoHeight;
 }
 
+// ----------------FUNCTION FOR DETECTING FACE------------------
+
 async function detect() {
   const faces = await faceDetector.detect(video);
   console.log(faces);
@@ -28,6 +50,8 @@ async function detect() {
   requestAnimationFrame(detect);
 }
 
+//----------FUNCTION FOR DRAWING FACE------------
+
 function drawFace(face) {
   const { width, height, top, left } = face.boundingBox;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -35,6 +59,9 @@ function drawFace(face) {
   ctx.lineWidth = 2;
   ctx.strokeRect(left, top, width, height);
 }
+
+//-------------FUNCTION FOR CENSORING FACE--------------
+
 function censorFace({ boundingBox: face }) {
   //destructuring and giving it a name
   faceCtx.imageSmoothingEnabled = false;
@@ -47,18 +74,18 @@ function censorFace({ boundingBox: face }) {
     face.height,
     face.x,
     face.y,
-    SIZE,
-    SIZE
+    options.SIZE,
+    options.SIZE
   );
 
-  const width = SCALE * face.width;
-  const height = SCALE * face.height;
+  const width = options.SCALE * face.width;
+  const height = options.SCALE * face.height;
   faceCtx.drawImage(
     faceCanvas,
     face.x,
     face.y,
-    SIZE,
-    SIZE,
+    options.SIZE,
+    options.SIZE,
     face.x - (width - face.width) / 2,
     face.y - (height - face.height) / 2,
     width,
