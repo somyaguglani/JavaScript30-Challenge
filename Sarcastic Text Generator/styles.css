@@ -1,0 +1,17 @@
+body {
+  background-color: purple;
+  min-height: 100vh;
+  display: grid;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 30rem;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 3px;
+}
