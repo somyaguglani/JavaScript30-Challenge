@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  margin: 0 auto;
+  margin: 5rem auto;
   max-width: 20em;
 }
 
@@ -53,8 +53,6 @@ body {
   margin-bottom: 16px;
 }
 
-/* List, list items, and list item buttons */
-
 .shopping-list {
   padding: 0;
   list-style-type: none;
@@ -83,9 +81,6 @@ body {
   background-color: yellow;
 }
 
-/* Checked-off item list formatting */
-
-/* (Increased specificity to override the even/odd psuedoclasses) */
 .list .list__item--checked {
   background: #d1c4e9;
   color: rgba(0, 0, 0, 0.38);
