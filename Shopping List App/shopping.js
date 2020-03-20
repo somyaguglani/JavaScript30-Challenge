@@ -31,7 +31,7 @@ function handleSubmit(e) {
 function displayItems() {
   const html = items
     .map(
-      item => `<li >
+      item => `<li class="list__item">
       <input
         value="${item.id}"
         type="checkbox"
@@ -39,6 +39,7 @@ function displayItems() {
       >
       <span class="itemName">${item.name}</span>
       <button
+      class="list__check-btn"
         aria-label="Remove ${item.name}"
         value="${item.id}"
       >&times;</buttonaria-label="Remove>

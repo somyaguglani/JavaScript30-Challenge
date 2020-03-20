@@ -8,9 +8,14 @@
   </head>
   <body>
     <div class="container">
-      <form class="shopping-form">
-        <input name="item" type="text" required />
-        <button type="submit">+ Add Items</button>
+      <form autocomplete="off" class="shopping-form">
+        <input
+          class="submission-line__input"
+          type="text"
+          name="item"
+          placeholder="Enter new item here..."
+        />
+        <button class="submission-line__btn">Add Item</button>
       </form>
       <ul class="shopping-list"></ul>
     </div>
