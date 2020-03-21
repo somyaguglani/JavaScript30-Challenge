@@ -52,6 +52,7 @@ img {
 }
 
 .modal img {
+  margin-top: 1rem;
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -68,6 +69,10 @@ img {
 
 .modal h2 {
   color: black;
+}
+.modal button {
+  color: white;
+  background-color: rgb(248, 7, 140);
 }
 
 .modal.open .modalInner {
