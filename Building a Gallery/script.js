@@ -8,15 +8,26 @@ function Gallery(gallery) {
   let currentImage;
   function openModal() {
     modal.classList.add(`open`);
+    window.addEventListener(`keyup`, handleKeys);
     prevButton.addEventListener(`click`, showPrevImage);
     nextButton.addEventListener(`click`, showNextImage);
   }
 
   function closeModal() {
-    //cmplete this
+    window.removeEventListener(`keyup`, handleKeys);
+    prevButton.removeEventListener(`click`, showPrevImage);
+    nextButton.removeEventListener(`click`, showNextImage);
     modal.classList.remove(`open`);
   }
-  //handle keys
+  modal.addEventListener(`click`, function(e) {
+    if (e.target == e.currentTarget) closeModal();
+  });
+
+  function handleKeys(e) {
+    if (e.key === `Escape`) closeModal();
+    else if (e.key === `ArrowRight`) showNextImage();
+    else if (e.key === `ArrowLeft`) showPrevImage();
+  }
 
   function showPrevImage() {
     showPhoto(currentImage.previousElementSibling || gallery.lastElementChild);
