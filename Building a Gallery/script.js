@@ -41,8 +41,8 @@ function Gallery(gallery) {
     currentImage = e;
     console.log(e);
     modal.querySelector(`img`).src = e.src;
-    modal.querySelector(`h2`).src = e.title;
-    modal.querySelector(`p`).src = e.dataset.description;
+    modal.querySelector(`h2`).textContent = e.title;
+    modal.querySelector(`p`).textContent = e.dataset.description;
     openModal();
   }
 
