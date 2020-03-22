@@ -51,6 +51,11 @@ function Gallery(gallery) {
       showPhoto(e.currentTarget);
     });
   });
+  imagesArray.forEach(image => {
+    image.addEventListener(`keyup`, e => {
+      if (e.key === `Enter`) showPhoto(e.currentTarget);
+    });
+  });
 }
 
 const gallery1 = Gallery(document.querySelector(`.gallery1`));
