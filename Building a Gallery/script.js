@@ -12,6 +12,7 @@ function Gallery(gallery) {
   //----------FUNCTIONS FOR OPENING AND CLOSING MODAL-----------
 
   function openModal() {
+    console.log(`working`);
     modal.classList.add(`open`);
     window.addEventListener(`keyup`, handleKeys);
     prevButton.addEventListener(`click`, showPrevImage);
@@ -66,11 +67,11 @@ function Gallery(gallery) {
       if (e.key === `Enter`) showPhoto(e.currentTarget);
     });
   });
-}
 
-modal.addEventListener(`click`, function(e) {
-  if (e.target == e.currentTarget) closeModal();
-});
+  modal.addEventListener(`click`, function(e) {
+    if (e.target == e.currentTarget) closeModal();
+  });
+}
 
 const gallery1 = Gallery(document.querySelector(`.gallery1`));
 const gallery2 = Gallery(document.querySelector(`.gallery2`));
