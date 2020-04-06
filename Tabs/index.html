@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+  </head>
+  <body>
+    <div class="tabContainer">
+      <div role="tablist" aria-label="Programming Languages">
+        <button role="tab" id="js" aria-selected="true">JavaScript</button>
+        <button role="tab" id="ruby" aria-selected="false">Ruby</button>
+        <button role="tab" id="php" aria-selected="false">PHP</button>
+      </div>
+      <div role="tabpanel" aria-labelledby="js">
+        <p>Js is amazing !</p>
+      </div>
+
+      <div role="tabpanel" aria-labelledby="ruby" hidden>
+        <p>Ruby is amazing !</p>
+      </div>
+
+      <div role="tabpanel" aria-labelledby="php" hidden>
+        <p>PHP is amazing !</p>
+      </div>
+    </div>
+  </body>
+</html>
