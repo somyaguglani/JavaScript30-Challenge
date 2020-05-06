@@ -77,10 +77,20 @@ function Pizza(toppings) {
 
 // go(2000);
 
-const allPizza = async () => {
-  const pizzaPromise1 = Pizza([`cheese`, `tomato`]);
-  const pizzaPromise2 = Pizza([`cheese`, `mush`]);
-  const dinner = await Promise.all([pizzaPromise1, pizzaPromise2]);
-  console.log(dinner);
+// const allPizza = async () => {
+//   const pizzaPromise1 = Pizza([`cheese`, `tomato`]);
+//   const pizzaPromise2 = Pizza([`cheese`, `mush`]);
+//   const dinner = await Promise.all([pizzaPromise1, pizzaPromise2]);
+//   console.log(dinner);
+// };
+// allPizza();
+
+//error handling in async and await
+
+const go = async () => {
+  await Pizza(["cheese", `tomatoes`]).then((message) => console.log(message)); //then won't work with go
 };
-allPizza();
+
+go().catch((error) => console.log(error));
+
+// the error handling with higher order functions remains.
