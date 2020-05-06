@@ -11,7 +11,7 @@ function Pizza(toppings) {
   return pizzaPromise;
 }
 
-const pizzaPromise1 = Pizza([`olives`, `extra cheese`]);
+// const pizzaPromise1 = Pizza([`olives`, `extra cheese`]);
 // pizzaPromise1
 //   .then(function (message) {
 //     console.log(message);
@@ -21,8 +21,8 @@ const pizzaPromise1 = Pizza([`olives`, `extra cheese`]);
 //     console.log(message);
 //   });
 
-const pizzaPromise2 = Pizza([`tomato`, `extra cheese`, `corn`, `pineapple`]);
-const pizzaPromise3 = Pizza([`tomato`, `extra cheese`]);
+// const pizzaPromise2 = Pizza([`tomato`, `extra cheese`, `corn`, `pineapple`]);
+// const pizzaPromise3 = Pizza([`tomato`, `extra cheese`]);
 // console.log(pizzaPromise1);
 // pizzaPromise1
 //   .then(function (message) {
@@ -37,11 +37,13 @@ const pizzaPromise3 = Pizza([`tomato`, `extra cheese`]);
 //     console.log(`you got rejected`);
 //     console.log(message);
 //   });
-const dinnerPromise = Promise.allSettle([
-  pizzaPromise1,
-  pizzaPromise1,
-  pizzaPromise3,
-]).then((things) => console.log(things));
+
+//with this method things won't break promise all
+// const dinnerPromise = Promise.allSettled([
+//   pizzaPromise1,
+//   pizzaPromise2,
+//   pizzaPromise3,
+// ]).then((things) => console.log(things));
 
 // const dinnerPromise = Promise.all([
 //   pizzaPromise1,
@@ -55,3 +57,30 @@ const dinnerPromise = Promise.allSettle([
 // firstPizza.then(function (pizza) {
 //   console.log(`you got the first pizza ${pizza}`);
 // });
+
+//async and await
+
+// const generatePromise = (time) => {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, time);
+//   });
+// };
+
+// async function go(time) {
+//   console.log(`start`);
+//   await generatePromise(time);
+//   console.log(`running`);
+//   await generatePromise(time);
+//   console.log(`still running`);
+//   console.log(`ending`);
+// }
+
+// go(2000);
+
+const allPizza = async () => {
+  const pizzaPromise1 = Pizza([`cheese`, `tomato`]);
+  const pizzaPromise2 = Pizza([`cheese`, `mush`]);
+  const dinner = await Promise.all([pizzaPromise1, pizzaPromise2]);
+  console.log(dinner);
+};
+allPizza();
