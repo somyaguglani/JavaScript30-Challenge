@@ -1,7 +1,22 @@
-.popup {
-  background: hsla(0, 0%, 30%, 0.5);
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  transition: all 0.25s;
-  
+/* i used css variables here , really cool watch traversey media's video if you forget about them  */
+
+button {
+  width: fit-content;
+  height: fit-content;
+  display: block;
+}
+form {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  --opacity: 0;
+  opacity: var(--opacity);
+  pointer-events: none;
+  width: fit-content;
+  height: fit-content;
+}
+
+form.open {
+  --opacity: 1;
+  pointer-events: all;
+}
