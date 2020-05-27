@@ -1,6 +1,6 @@
 /* i used css variables here , really cool watch traversey media's video if you forget about them  */
 
-button {
+/* button {
   width: fit-content;
   height: fit-content;
   display: block;
@@ -19,4 +19,20 @@ form {
 form.open {
   --opacity: 1;
   pointer-events: all;
+} */
+
+form {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  --opacity: 0;
+  opacity: var(--opacity);
+  pointer-events: none;
+}
+
+form.visibleNow {
+  pointer-events: all;
+  --opacity: 1;
 }
